@@ -84,7 +84,7 @@ void mascotaFactura(int Servicio[3][20], char Mascota[5][10]) {
     if (encontrado) {
 
         FILE *f;
-        f = fopen("mascotaFactura.txt", "w");
+        f = fopen("mascotaFactura.txt", "a");
 
         printf("\n***** FACTURA *****\n");
         printf("ID de la mascota: %s\n", *(Mascota + i));
@@ -141,7 +141,7 @@ void servicioFactura(int Servicio[3][20], char Mascota[5][10]) {
     scanf("%d", &idServicio);
 
     FILE *g;
-    g = fopen("servicioFactura.txt", "w");
+    g = fopen("servicioFactura.txt", "a");
 
     fprintf(g, "\n***** FACTURA *****\n");
     fprintf(g, "ID del servicio: %d\n", idServicio);
