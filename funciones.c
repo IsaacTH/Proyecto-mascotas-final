@@ -140,11 +140,13 @@ void servicioFactura(int Servicio[3][20], char Mascota[5][10]) {
     printf("Ingrese el ID del servicio para generar la factura: ");
     scanf("%d", &idServicio);
 
-    FILE *g;
-    g = fopen("servicioFactura.txt", "a");
+    FILE *f;
+    f = fopen("mascotaFactura.txt", "a");
 
-    fprintf(g, "\n***** FACTURA *****\n");
-    fprintf(g, "ID del servicio: %d\n", idServicio);
+    fprintf(f, "\n***** FACTURA *****\n");
+    printf("\n***** FACTURA *****\n");
+    fprintf(f, "ID del servicio: %d\n", idServicio);
+    printf("ID del servicio: %d\n", idServicio);
 
     int *pServicio = Servicio[0];
     int *pPrecio = Servicio[1];
@@ -167,11 +169,16 @@ void servicioFactura(int Servicio[3][20], char Mascota[5][10]) {
             }
         }
 
-        fprintf(g, "ID de la mascota: %s\n", *(Mascota + i));
-        fprintf(g, "Nombre de la mascota: %s\n", *(Mascota + i + 1));
-        fprintf(g, "Tipo de mascota: %s\n", *(Mascota + i + 2));
-        fprintf(g, "Edad de la mascota: %s\n", *(Mascota + i + 3));
-        fprintf(g, "Nombre del propietario: %s\n", *(Mascota + i + 4));
+        fprintf(f, "ID de la mascota: %s\n", *(Mascota + i));
+        printf("ID de la mascota: %s\n", *(Mascota + i));
+        fprintf(f, "Nombre de la mascota: %s\n", *(Mascota + i + 1));
+        printf("Nombre de la mascota: %s\n", *(Mascota + i + 1));
+        fprintf(f, "Tipo de mascota: %s\n", *(Mascota + i + 2));
+        printf("Tipo de mascota: %s\n", *(Mascota + i + 2));
+        fprintf(f, "Edad de la mascota: %s\n", *(Mascota + i + 3));
+        printf("Edad de la mascota: %s\n", *(Mascota + i + 3));
+        fprintf(f, "Nombre del propietario: %s\n", *(Mascota + i + 4));
+        printf("Nombre del propietario: %s\n", *(Mascota + i + 4));
 
         int *pServicio = Servicio[0];
         int *pPrecio = Servicio[1];
@@ -181,20 +188,25 @@ void servicioFactura(int Servicio[3][20], char Mascota[5][10]) {
                 int servicioID = *pServicio;
                 int servicioPrecio = *pPrecio;
 
-                fprintf(g, "Numero de servicio: %d\n", servicioID);
+                fprintf(f, "Numero de servicio: %d\n", servicioID);
+                printf("Numero de servicio: %d\n", servicioID);
                 if (servicioID == 1111) {
-                    fprintf(g, "Peluqueada: $%d\n", servicioPrecio);
+                    fprintf(f, "Peluqueada: $%d\n", servicioPrecio);
+                    printf("Peluqueada: $%d\n", servicioPrecio);
                 } else if (servicioID == 2222) {
-                    fprintf(g, "Desparasitacion: $%d\n", servicioPrecio);
+                    fprintf(f, "Desparasitacion: $%d\n", servicioPrecio);
+                    printf("Desparasitacion: $%d\n", servicioPrecio);
                 } else if (servicioID == 3333) {
-                    fprintf(g, "Adiestramiento: $%d\n", servicioPrecio);
+                    fprintf(f, "Adiestramiento: $%d\n", servicioPrecio);
+                    printf("Adiestramiento: $%d\n", servicioPrecio);
                 }
                 totalPrecios += servicioPrecio;
             }
             pServicio++;
             pPrecio++;
         }
-        fprintf(g, "Total: $%d\n\n", totalPrecios);
-        fclose(g);
+        fprintf(f, "Total: $%d\n\n", totalPrecios);
+        printf("Total: $%d\n\n", totalPrecios);
+        fclose(f);
     } 
 }
